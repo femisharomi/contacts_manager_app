@@ -41,7 +41,8 @@ const fakeContacts = {
   async create(values: ContactMutation): Promise<ContactRecord> {
     const id = values.id || Math.random().toString(36).substring(2, 9);
     const createdAt = new Date().toISOString();
-    const newContact = { id, createdAt, ...values };
+    const avatar = "/public/mystery_person.jpg";
+    const newContact = { id, avatar, createdAt, ...values };
     fakeContacts.records[id] = newContact;
     return newContact;
   },
@@ -96,6 +97,13 @@ export async function deleteContact(id: string) {
 }
 
 [
+  {
+    avatar:
+      "/public/me.jpg",
+    first: "Femi",
+    last: "Sharomi",
+    twitter: "@femi_sharomi",
+  },
   {
     avatar:
       "https://sessionize.com/image/124e-400o400o2-wHVdAuNaxi8KJrgtN3ZKci.jpg",
